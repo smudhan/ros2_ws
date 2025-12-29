@@ -1,5 +1,6 @@
 Mobile Manipulator Coordination System
 This workspace integrates a mobile base (TurtleBot3) with an industrial manipulator (OpenXManipulator) to perform autonomous navigation and pick-and-place tasks within a warehouse environment.
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/5288a47c-27b2-40fe-82df-621de0c36a84" />
 
 🛠️ Prerequisites & Installation
 Ensure you are using ROS2 Humble on Ubuntu 22.04.
@@ -17,6 +18,9 @@ Build the Workspace:
 cd ~/ros2_ws
 colcon build 
 source install/setup.bash 
+
+do not forget to source your workspace and humble before running any command. OR else add it to ~/.bashrc
+
 🕹️ Step 1: Manual Control & Teleoperation Verification
 This step verifies that the ros2_control hardware interfaces for the base, arm, and gripper are correctly configured.
 
