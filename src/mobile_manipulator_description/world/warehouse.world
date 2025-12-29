@@ -1,0 +1,184 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="warehouse_world">
+
+    <!-- Ground and light -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- ================= FLOOR ================= -->
+    <model name="floor">
+      <static>true</static>
+      <link name="floor_link">
+        <collision name="floor_col">
+          <geometry>
+            <box><size>20 20 0.05</size></box>
+          </geometry>
+        </collision>
+        <visual name="floor_vis">
+          <geometry>
+            <box><size>20 20 0.05</size></box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ================= PALLET BASE ================= -->
+    <model name="pallet_base">
+      <static>true</static>
+      <pose>2 0 0.04 0 0 0</pose>
+      <link name="pallet_link">
+        <collision name="pallet_col">
+          <geometry>
+            <box><size>0.6 0.6 0.28</size></box>
+          </geometry>
+        </collision>
+        <visual name="pallet_vis">
+          <geometry>
+            <box><size>0.6 0.6 0.28</size></box>
+          </geometry>
+          <material>
+            <ambient>0.55 0.35 0.2 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ================= PALLET PARTITIONS (2x2) ================= -->
+
+    <!-- Vertical partition -->
+    <model name="pallet_divider_x">
+      <static>true</static>
+      <pose>2 0 0.10 0 0 0</pose>
+      <link name="link">
+        <collision name="col">
+          <geometry>
+            <box><size>0.02 0.6 0.34</size></box>
+          </geometry>
+        </collision>
+        <visual name="vis">
+          <geometry>
+            <box><size>0.02 0.6 0.34</size></box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Horizontal partition -->
+    <model name="pallet_divider_y">
+      <static>true</static>
+      <pose>2 0 0.10 0 0 1.57</pose>
+      <link name="link">
+        <collision name="col">
+          <geometry>
+            <box><size>0.02 0.6 0.34</size></box>
+          </geometry>
+        </collision>
+        <visual name="vis">
+          <geometry>
+            <box><size>0.02 0.6 0.34</size></box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ================= PICK OBJECTS (CENTERED) ================= -->
+
+    <!-- Top-left -->
+    <model name="pick_1">
+      <pose>1.85 0.15 0.32 0 0 0</pose>
+      <link name="link">
+        <collision name="col">
+          <geometry><box><size>0.04 0.04 0.04</size></box></geometry>
+        </collision>
+        <visual name="vis">
+          <geometry><box><size>0.04 0.04 0.04</size></box></geometry>
+          <material><ambient>1 0 0 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Top-right -->
+    <model name="pick_2">
+      <pose>2.15 0.15 0.32 0 0 0</pose>
+      <link name="link">
+        <collision name="col">
+          <geometry><box><size>0.04 0.04 0.04</size></box></geometry>
+        </collision>
+        <visual name="vis">
+          <geometry><box><size>0.04 0.04 0.04</size></box></geometry>
+          <material><ambient>1 0 0 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Bottom-left -->
+    <model name="pick_3">
+      <pose>1.85 -0.15 0.32 0 0 0</pose>
+      <link name="link">
+        <collision name="col">
+          <geometry><box><size>0.04 0.04 0.04</size></box></geometry>
+        </collision>
+        <visual name="vis">
+          <geometry><box><size>0.04 0.04 0.04</size></box></geometry>
+          <material><ambient>1 0 0 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Bottom-right -->
+    <model name="pick_4">
+      <pose>2.15 -0.15 0.32 0 0 0</pose>
+      <link name="link">
+        <collision name="col">
+          <geometry><box><size>0.04 0.04 0.04</size></box></geometry>
+        </collision>
+        <visual name="vis">
+          <geometry><box><size>0.04 0.04 0.04</size></box></geometry>
+          <material><ambient>1 0 0 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ================= HOLLOW DROP BOX ================= -->
+    <model name="drop_box">
+      <static>true</static>
+      <pose>-2 0 0.10 0 0 0</pose>
+      <link name="drop_link">
+
+        <!-- Bottom -->
+        <collision name="bottom_col">
+          <geometry><box><size>0.4 0.4 0.04</size></box></geometry>
+        </collision>
+        <visual name="bottom_vis">
+          <geometry><box><size>0.4 0.4 0.04</size></box></geometry>
+          <material><ambient>0 0 1 1</ambient></material>
+        </visual>
+
+        <!-- Walls -->
+        <collision name="wall1_col">
+          <pose>0 0.18 0.12 0 0 0</pose>
+          <geometry><box><size>0.4 0.04 0.22</size></box></geometry>
+        </collision>
+        <collision name="wall2_col">
+          <pose>0 -0.18 0.12 0 0 0</pose>
+          <geometry><box><size>0.4 0.04 0.22</size></box></geometry>
+        </collision>
+        <collision name="wall3_col">
+          <pose>0.18 0 0.12 0 0 1.57</pose>
+          <geometry><box><size>0.4 0.04 0.22</size></box></geometry>
+        </collision>
+        <collision name="wall4_col">
+          <pose>-0.18 0 0.12 0 0 1.57</pose>
+          <geometry><box><size>0.4 0.04 0.22</size></box></geometry>
+        </collision>
+
+      </link>
+    </model>
+
+  </world>
+</sdf>

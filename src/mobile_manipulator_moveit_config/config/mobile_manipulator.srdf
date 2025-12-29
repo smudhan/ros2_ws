@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="mobile_manipulator">
+    <group name="arm">
+        <joint name="open_manipulator_joint1"/>
+        <joint name="open_manipulator_joint2"/>
+        <joint name="open_manipulator_joint3"/>
+        <joint name="open_manipulator_joint4"/>
+    </group>
+    <group_state name="home" group="arm">
+        <joint name="open_manipulator_joint1" value="0"/>
+        <joint name="open_manipulator_joint2" value="0"/>
+        <joint name="open_manipulator_joint3" value="0"/>
+        <joint name="open_manipulator_joint4" value="0"/>
+    </group_state>
+    <disable_collisions link1="base_link" link2="open_manipulator_link1" reason="Adjacent"/>
+</robot>

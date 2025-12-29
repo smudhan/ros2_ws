@@ -1,0 +1,15 @@
+moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+
+moveit_simple_controller_manager:
+  controller_names:
+    - arm_controller
+
+  arm_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: True
+    joints:
+      - open_manipulator_joint1
+      - open_manipulator_joint2
+      - open_manipulator_joint3
+      - open_manipulator_joint4

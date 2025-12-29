@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="mobile_manipulator">
+    <group name="arm">
+        <chain base_link="open_manipulator_link1" tip_link="open_manipulator_link5"/>
+    </group>
+    <group name="gripper">
+        <link name="open_manipulator_gripper_left_link"/>
+        <link name="open_manipulator_gripper_right_link"/>
+    </group>
+    <group_state name="home" group="arm">
+        <joint name="open_manipulator_joint1" value="0"/>
+        <joint name="open_manipulator_joint2" value="-1.57"/>
+        <joint name="open_manipulator_joint3" value="1.37"/>
+        <joint name="open_manipulator_joint4" value="0.22"/>
+    </group_state>
+    <disable_collisions link1="base_link" link2="open_manipulator_link1" reason="Adjacent"/>
+</robot>
